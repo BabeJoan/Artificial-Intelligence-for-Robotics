@@ -187,7 +187,8 @@ initial_xy = [4., 12.]
 dt = 0.1
 
 x = matrix([[initial_xy[0]], [initial_xy[1]], [0.], [0.]])  # initial state (location and velocity)
-u = matrix([[0.], [0.], [0.], [0.]])  # external motion
+u = matrix([[0.], [0.], [0.], [0.]])  # external motion it's a choice like if u give acceleration in control system
+#but here we are tracking, so we set all of 0
 
 #### DO NOT MODIFY ANYTHING ABOVE HERE ####
 #### fill this in, remember to use the matrix() function!: ####
@@ -198,7 +199,7 @@ F = matrix(
     [[1, 0, 1, 0], [0, 1, 0, 1], [0, 0, 1, 0], [0, 0, 0, 1]])  # next state function: generalize the 2d version to 4d
 H = matrix(
     [[1, 0], [0, 1]])  # measurement function: reflect the fact that we observe x and y but not the two velocities
-R = matrix([[0.1, 0], [0, 0.1]])  # measurement uncertainty: use 2x2 matrix with 0.1 as main diagonal
+R = matrix([[0.1, 0], [0, 0.1]])  # measurement uncertainty: use 2x2 matrix with 0.1 as main diagonal,noise matrix from sensor
 I = matrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]])  # 4d identity matrix
 
 ###### DO NOT MODIFY ANYTHING HERE #######
